@@ -627,7 +627,7 @@ func TestMarshalUnmarshalPropertyList(t *testing.T) {
 	if err := nds.UnmarshalPropertyList(data, &pl); err != nil {
 		t.Fatal(err)
 	}
-	if err := nds.SetValue(reflect.ValueOf(testEntity), pl); err != nil {
+	if err := nds.SetValue(reflect.Indirect(reflect.ValueOf(testEntity)), pl); err != nil {
 		t.Fatal(err)
 	}
 

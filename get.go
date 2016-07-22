@@ -54,7 +54,7 @@ const getMultiLimit = 1000
 func GetMulti(c context.Context,
 	keys []*datastore.Key, vals interface{}) error {
 
-	v := reflect.ValueOf(vals)
+	v := reflect.Indirect(reflect.ValueOf(vals))
 	if err := checkMultiArgs(keys, v); err != nil {
 		return err
 	}
